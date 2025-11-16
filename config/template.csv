@@ -1,0 +1,5 @@
+Title,Description,Type,Labels,Assignee,Milestone,Repository
+User Authentication System,Enable secure login and session management,Epic,ask-myuni;security,nimeshe,v1.0,askmyuni-supportsystems
+OAuth2 Integration,Implement OAuth2 provider integration,Task,ask-myuni;security;integration,user1,v1.0,askmyuni-main
+Password Reset Flow,Add secure password reset functionality,Task,ask-myuni;security,user2,v1.0,askmyuni-supportsystems
+API Endpoint Documentation,Document all API endpoints,Task,ask-myuni;documentation,user3,v1.0,askmyuni-main

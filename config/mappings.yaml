@@ -1,0 +1,58 @@
+# Field Mappings and Repository Assignment Rules
+
+# CSV Column to GitHub Field Mappings
+field_mappings:
+  Title: title              # Issue title
+  Description: body         # Issue body/description
+  Type: type                # Epic or Task
+  Labels: labels            # Comma-separated labels
+  Assignee: assignee        # GitHub user login
+  Milestone: milestone       # Milestone name
+  Repository: repository    # Target repo assignment
+
+# Repository Assignment Rules
+# Issues are routed based on Repository column or default rules
+repository_rules:
+  primary: askmyuni-supportsystems
+  secondary: askmyuni-main
+  default: askmyuni-supportsystems
+
+# Epic Label Mapping
+# Automatically added to all issues
+epic_labels:
+  - ask-myuni
+  
+# Validation Rules per Column
+validation:
+  Type:
+    allowed_values:
+      - Epic
+      - Task
+    required: true
+  
+  Labels:
+    required: false
+    separator: ";"
+    max_length: 50
+  
+  Assignee:
+    required: false
+    format: github_username
+  
+  Milestone:
+    required: false
+    allow_create: true
+  
+  Repository:
+    allowed_values:
+      - askmyuni-supportsystems
+      - askmyuni-main
+    required: false
+    default: askmyuni-supportsystems
+
+# Error Handling
+error_handling:
+  on_missing_epic: "warn"  # warn or fail
+  on_invalid_assignee: "warn"
+  on_missing_labels: "create"  # create or warn
+  on_missing_milestone: "create"

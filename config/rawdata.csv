@@ -1,0 +1,97 @@
+Title,Description,Status,Labels,Parent
+D1: MyUni Systems Foundations,"Core backend: DB, API, IaC, CI/CD, Static Website","To Do","Epic",
+D1.1: Infrastructure as Code (Terraform),"Setup minimal Terraform:
+- Create Firestore DB
+- Create Cloud Storage bucket (static website)
+- Create Cloud Run service placeholder
+- Create service accounts
+(HINT: Keep Terraform tiny; just enough to give confidence)", "To Do","infra","D1: MyUni Systems Foundations"
+D1.2: Define Database Schema,"Create Firestore collections:
+- students
+- courses
+- enrolments
+(HINT: Only add fields needed for general enquiries)", "To Do","database","D1: MyUni Systems Foundations"
+D1.3: Migration Simulation Framework,"Create folder `migrations/`
+- 0001_init.py
+- simple migration runner
+(HINT: Not real migrations; simulating process for learning)", "To Do","database","D1: MyUni Systems Foundations"
+D1.4: Backend API Skeleton,"FastAPI project with 2 endpoints:
+- GET /public/courses
+- GET /public/courses/{id}
+(HINT: pure read-only for now)", "To Do","api","D1: MyUni Systems Foundations"
+D1.5: Load Sample Data,"Add JSON/CSV file with:
+- 5 sample courses
+- Intake dates
+(HINT: simple data, no complexity)", "To Do","database","D1: MyUni Systems Foundations"
+D1.6: Static Website,"Create Cloud Storage static site:
+- Basic HTML page
+- List of courses
+(HINT: do NOT overthink design)", "To Do","web","D1: MyUni Systems Foundations"
+D1.7: CI/CD Pipeline for MyUni API,"Cloud Build trigger:
+- Build container
+- Run migrations
+- Deploy to Cloud Run
+(HINT: small and simple)", "To Do","cicd","D1: MyUni Systems Foundations"
+D1.8: Backups,"Automate weekly DB export:
+- Scheduled Cloud Function
+(HINT: one-liner export, no restore yet)", "To Do","infra","D1: MyUni Systems Foundations"
+
+D2: AskMyUni Agentic Foundations,"Build orchestrator skeleton + fake agents + CI/CD","To Do","Epic",
+D2.1: Orchestrator Skeleton,"Create Cloud Run function:
+- POST /processEmail
+- Hardcoded example output
+(HINT: focus on workflow shell)", "To Do","orchestrator","D2: AskMyUni Agentic Foundations"
+D2.2: Agent_VerifyIdentity (Fake V0),"Fake verification agent returns:
+{ identityVerified: true }
+(HINT: no security yet)", "To Do","agent","D2: AskMyUni Agentic Foundations"
+D2.3: Agent_L1Support (Fake V0),"Basic categorisation:
+- Always return 'General'
+- Generic response string", "To Do","agent","D2: AskMyUni Agentic Foundations"
+D2.4: Minimal Workflow,"Implement:
+- verifyIdentity()
+- l1Support()
+- return combined result
+(HINT: no parallel logic yet)", "To Do","orchestrator","D2: AskMyUni Agentic Foundations"
+D2.5: CI/CD Pipeline (AskMyUni),"Cloud Build trigger for orchestrator:
+- Build
+- Deploy to Cloud Run", "To Do","cicd","D2: AskMyUni Agentic Foundations"
+D2.6: Logging/Observability Setup,"Add:
+- correlation IDs
+- simple structured logs
+(HINT: minimal structuredJSON output)", "To Do","logging","D2: AskMyUni Agentic Foundations"
+
+D3: AskMyUni MVP,"General enquiry support working end-to-end","To Do","Epic",
+D3.1: L1 Agent V1,"Add:
+- Query classification (General vs Unknown)
+- Fetch data from MyUni API
+(HINT: first real tool use)", "To Do","agent","D3: AskMyUni MVP"
+D3.2: Orchestrator Parallel Pattern,"Implement:
+- Parallel verifyIdentity + analyzeQuery
+- Wait for verification step
+(HINT: identity still fake but structure real)", "To Do","orchestrator","D3: AskMyUni MVP"
+D3.3: Human Escalation (General),"If Unknown:
+- create fake Supervisor ticket
+- include summary + raw query", "To Do","escalation","D3: AskMyUni MVP"
+D3.4: Knowledge Base Integration,"Use MyUni public API as 'KB'
+(HINT: no RAG yet, just real data fetch)", "To Do","agent","D3: AskMyUni MVP"
+D3.5: Output Formatter,"Standard JSON output format:
+- path
+- agent outputs
+- final message", "To Do","orchestrator","D3: AskMyUni MVP"
+
+D4: MyUni Systems MVP,"Backend enhancements required for AskMyUni MVP","To Do","Epic",
+D4.1: Expand Course Schema,"Add fields:
+- duration
+- fee
+- campus
+- intakes", "To Do","database","D4: MyUni Systems MVP"
+D4.2: Add Public API Filters,"GET /public/courses?campus&year", "To Do","api","D4: MyUni Systems MVP"
+D4.3: Load Expanded Sample Data,"Add data for:
+- 5–6 courses
+- Term calendar", "To Do","database","D4: MyUni Systems MVP"
+D4.4: Improve Static Website,"Add:
+- intake dates
+- generic handbook page", "To Do","web","D4: MyUni Systems MVP"
+D4.5: Smoke Tests in CI,"Simple tests:
+- endpoint health
+- sample API response", "To Do","testing","D4: MyUni Systems MVP"
